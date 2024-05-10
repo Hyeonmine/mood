@@ -15,7 +15,7 @@
 HELP.md
 # AWS User-specific
 .idea/**/aws.xml
-
+.idea/**
 # Generated files
 .idea/**/contentModel.xml
 
