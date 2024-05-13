@@ -19,7 +19,7 @@ public class Board extends BaseTimeEntity{
 
     @ManyToOne
     @JoinColumn(name="uid")
-    private User user;
+    private User writer;
 
     private String title;
 
