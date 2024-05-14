@@ -10,10 +10,10 @@ import lombok.ToString;
 @Entity
 @ToString
 @Table(name="board")
-public class Board extends BaseTimeEntity{
+public class Board extends BaseTimeEntity {
 
     @Id
-    @Column(name="bno")
+    @Column(name = "bno")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bno;
 

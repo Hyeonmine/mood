@@ -4,6 +4,7 @@ import com.boot.mood.entity.Board;
 import com.boot.mood.repository.BoardRepository;
 import com.boot.mood.repository.HeartRepository;
 import jakarta.transaction.Transactional;
+import com.boot.mood.dto.BoardDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,5 @@ public class BoardService {
         return boardRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Board not found"));
     }
-
 
 }

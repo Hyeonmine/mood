@@ -1,25 +1,38 @@
 package com.boot.mood.dto;
 
+
+import com.boot.mood.entity.BaseTimeEntity;
 import com.boot.mood.entity.Board;
 import com.boot.mood.entity.User;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.modelmapper.ModelMapper;
 
-@NoArgsConstructor
 @Getter
-public class BoardDto {
+@Setter
+@NoArgsConstructor
+@ToString
 
-    private String title;
-    private String content;
+public class BoardDto extends BaseTimeEntity {
+
+    private Long bno;
     private User writer;
+    @NotBlank(message = "제목은 필수 입력 값입니다.")
+    private String title;
+    @NotBlank(message = "내용은 필수 입력 값입니다.")
+    private String content;
     private Long hit;
 
-    public BoardDto(Board board) {
-        this.title = board.getTitle();
-        this.content = board.getContent();
-        this.writer = board.getWriter();
-        this.hit = board.getHit();
-    }
+//    private static ModelMapper modelMapper = new ModelMapper();
 
+//    public Board createBoard(){
+//        return modelMapper.map(this, Board.class);
+//    }
+//    public static BoardDto of(Board board){
+//        return modelMapper.map(board, BoardDto.class);
+//    }
 
 }
