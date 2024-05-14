@@ -1,16 +1,17 @@
 package com.boot.mood.service;
 
-public class UserService {
 import com.boot.mood.dto.UserDto;
+import com.boot.mood.dto.UserFormDto;
 import com.boot.mood.entity.User;
 import com.boot.mood.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
@@ -22,12 +23,12 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public User save(UserDto request){
+    public User save(UserFormDto userDto){
         return userRepository.save(User.builder()
-                .uid(request.getUid())
-                .password(bCryptPasswordEncoder.encode(request.getPassword()))
-                .email(request.getEmail())
-                .nickname(request.getNickname())
+                .uid(userDto.getUid())
+                .password(bCryptPasswordEncoder.encode(userDto.getPassword()))
+                .email(userDto.getEmail())
+                .nickname(userDto.getNickname())
                 .build());
     }
 

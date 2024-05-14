@@ -14,7 +14,6 @@ import org.modelmapper.ModelMapper;
 @Setter
 @NoArgsConstructor
 @ToString
-
 public class BoardDto extends BaseTimeEntity {
 
     private Long bno;
@@ -33,5 +32,13 @@ public class BoardDto extends BaseTimeEntity {
 //    public static BoardDto of(Board board){
 //        return modelMapper.map(board, BoardDto.class);
 //    }
+
+    public BoardDto(Board board) {
+        this.bno = board.getBno();
+        this.writer = board.getWriter();
+        this.title = board.getTitle();
+        this.content = board.getContent();
+        this.hit = board.getHit();
+    }
 
 }

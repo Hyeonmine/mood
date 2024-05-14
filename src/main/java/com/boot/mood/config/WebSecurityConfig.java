@@ -30,7 +30,7 @@ public class WebSecurityConfig{
                 .formLogin(formLogin ->
                         formLogin
                                 .loginPage("/login")
-                                .defaultSuccessUrl("/")
+                                .defaultSuccessUrl("/boardList")
                                 .usernameParameter("uid")
                 )
                 .logout(logout ->

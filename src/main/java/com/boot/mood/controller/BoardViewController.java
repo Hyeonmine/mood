@@ -1,7 +1,6 @@
 package com.boot.mood.controller;
 
 import com.boot.mood.dto.BoardDto;
-import com.boot.mood.dto.HashTagDto;
 import com.boot.mood.entity.Board;
 import com.boot.mood.entity.Hash;
 import com.boot.mood.entity.User;
@@ -9,7 +8,6 @@ import com.boot.mood.repository.HashRepository;
 import com.boot.mood.service.BoardService;
 import com.boot.mood.service.HashService;
 import com.boot.mood.service.HeartService;
-import com.boot.mood.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -51,7 +49,7 @@ public class BoardViewController {
         model.addAttribute("heart", heart);
 
         model.addAttribute("hashes", hashes);
-        return "detail_board";
+        return "board/detail_board";
 
     }
 
