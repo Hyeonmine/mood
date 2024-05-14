@@ -7,6 +7,9 @@ import jakarta.transaction.Transactional;
 import com.boot.mood.dto.BoardDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+
 import java.io.IOException;
 import java.util.List;
 
@@ -15,24 +18,25 @@ import java.util.List;
 public class BoardService {
 
     final private BoardRepository boardRepository;
-    private final FileService fileService;
+    final private FileService fileService;
 
     // 모든 게시글 가져오기
-    public List<Board> findAll(){
+    public List<Board> findAll() {
         return boardRepository.findAll();
     }
 
-    public Board findById(Long id){
+    public Board findById(Long id) {
         return boardRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Board not found"));
-      
-    public Board registBoard(Board board, List<MultipartFile> files) throws IOException {
+    }
+        public Board registBoard (Board board, List < MultipartFile > files) throws IOException {
 
-        for (MultipartFile multipartFile : files) {
-            fileService.saveFile(multipartFile);
+            for (MultipartFile multipartFile : files) {
+                fileService.saveFile(multipartFile);
+            }
+            return boardRepository.save(board);
+
         }
-        return boardRepository.save(board);
 
     }
 
-}

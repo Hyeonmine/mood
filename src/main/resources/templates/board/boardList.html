@@ -34,7 +34,9 @@
             <tbody>
             <tr th:each="board : ${boards}" class="text-center align-middle">
                 <td th:text="${board.bno}"></td>
-                <td th:text="${board.title}"></td>
+                <td>
+                    <a th:href="@{/board/{bno}(bno=${board.bno})}" th:text="${board.title}"></a>
+                </td>
                 <td th:text="${board.writer.uid}"></td>
                 <td th:text="${board.regTime}"></td>
             </tr>

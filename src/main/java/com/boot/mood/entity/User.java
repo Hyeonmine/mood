@@ -3,10 +3,8 @@ package com.boot.mood.entity;
 
 import com.boot.mood.dto.UserFormDto;
 import com.boot.mood.constant.Role;
-import com.boot.mood.dto.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,13 +35,12 @@ public class User implements UserDetails{
 
     private String password;
 
-    private String nickname;
   
 //    @Enumerated(EnumType.STRING)
 //    private Role role;
 
 
-    public User createUser(UserDto userDto, PasswordEncoder passwordEncoder) {
+    public static User createUser(UserFormDto userDto, PasswordEncoder passwordEncoder) {
         User user = new User();
         user.setUid(userDto.getUid());
         user.setEmail(userDto.getEmail());

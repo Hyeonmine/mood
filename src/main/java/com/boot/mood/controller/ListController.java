@@ -27,14 +27,14 @@ public class ListController {
 
     @GetMapping(value = "/")
     public String boardList(Model model){
-        List<Board> boards = boardService.findAllBoard();
+        List<Board> boards = boardService.findAll();
         model.addAttribute("boards",boards);
         return "board/boardList";
     }
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "/boardList")
     public String boardList2(Model model){
-        List<Board> boards = boardService.findAllBoard();
+        List<Board> boards = boardService.findAll();
         model.addAttribute("boards",boards);
         return "board/boardList";
     }
