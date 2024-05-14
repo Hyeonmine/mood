@@ -12,7 +12,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name="user")
+@Table(name="`user`")
 public class User {
 
     @Id
@@ -25,10 +25,5 @@ public class User {
 
     private String nickname;
 
-//    public User createUser() {
-//        User user = new User();
-//
-//
-//    }
 
 }
