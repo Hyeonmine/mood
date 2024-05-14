@@ -19,6 +19,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+
 @Table(name="user")
 public class User implements UserDetails{
 
@@ -31,7 +32,7 @@ public class User implements UserDetails{
     private String password;
 
     private String nickname;
-
+  
 //    @Enumerated(EnumType.STRING)
 //    private Role role;
 
@@ -91,6 +92,5 @@ public class User implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
-
 
 }

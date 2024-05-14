@@ -1,5 +1,6 @@
 package com.boot.mood.dto;
 
+
 import com.boot.mood.entity.BaseTimeEntity;
 import com.boot.mood.entity.Board;
 import com.boot.mood.entity.User;
@@ -33,6 +34,5 @@ public class BoardDto extends BaseTimeEntity {
 //    public static BoardDto of(Board board){
 //        return modelMapper.map(board, BoardDto.class);
 //    }
-
 
 }

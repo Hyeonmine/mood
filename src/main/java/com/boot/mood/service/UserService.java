@@ -1,5 +1,6 @@
 package com.boot.mood.service;
 
+public class UserService {
 import com.boot.mood.dto.UserDto;
 import com.boot.mood.entity.User;
 import com.boot.mood.repository.UserRepository;

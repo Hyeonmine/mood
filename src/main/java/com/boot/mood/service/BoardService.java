@@ -1,27 +1,30 @@
 package com.boot.mood.service;
 
-import com.boot.mood.dto.BoardDto;
 import com.boot.mood.entity.Board;
 import com.boot.mood.repository.BoardRepository;
+import com.boot.mood.repository.HeartRepository;
+import jakarta.transaction.Transactional;
+import com.boot.mood.dto.BoardDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class BoardService {
 
-    private final BoardRepository boardRepository;
+    final private BoardRepository boardRepository;
 
 
-//    public Long saveBoard(BoardDto boardDto) throws Exception{
-//        Board board = boardDto.createBoard();
-//        boardRepository.save(board);
-//        return board.getBno();
-//    }
-    public List<Board> findAllBoard(){
+    // 모든 게시글 가져오기
+    public List<Board> findAll(){
         return boardRepository.findAll();
     }
+
+    public Board findById(Long id){
+        return boardRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Board not found"));
+    }
+
 }
