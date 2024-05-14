@@ -31,4 +31,11 @@ public class ListController {
         model.addAttribute("boards",boards);
         return "board/boardList";
     }
+
+    @PostMapping(value = "/")
+    public String boardList2(Model model){
+        List<Board> boards = boardService.findAllBoard();
+        model.addAttribute("boards",boards);
+        return "board/boardList";
+    }
 }
