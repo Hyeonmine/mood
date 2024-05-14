@@ -1,4 +1,5 @@
 package com.boot.mood.repository;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -9,4 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
+
 }

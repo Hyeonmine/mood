@@ -1,5 +1,6 @@
 package com.boot.mood.controller;
 
+
 import com.boot.mood.dto.UserDto;
 import com.boot.mood.dto.UserResponse;
 import com.boot.mood.entity.User;
@@ -18,6 +19,12 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class UserViewController {
+
+
+    @GetMapping("account/accountCreateForm")
+    public String createAccount() {
+        return "account/accountCreateForm";
+    }
 
     private final UserService userService;
 
@@ -48,5 +55,6 @@ public class UserViewController {
         model.addAttribute("users", users); // 블로그 글 리스트 저장
         return "userList"; // articleList.html 라는 뷰 조회
     }
+
 
 }

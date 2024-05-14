@@ -1,6 +1,5 @@
 package com.boot.mood.dto;
 
-
 import com.boot.mood.entity.BaseTimeEntity;
 import com.boot.mood.entity.Board;
 import com.boot.mood.entity.User;

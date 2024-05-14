@@ -1,5 +1,7 @@
 package com.boot.mood.entity;
 
+
+import com.boot.mood.dto.UserFormDto;
 import com.boot.mood.constant.Role;
 import com.boot.mood.dto.UserDto;
 import jakarta.persistence.*;
@@ -14,20 +16,24 @@ import java.util.Collection;
 import java.util.List;
 
 
+
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @ToString
 
-@Table(name="user")
-public class User implements UserDetails{
 
+@Table(name="`user`")
+public class User implements UserDetails{
     @Id
-    @Column(name="uid")
+    @Column(name = "uid")
+
     private String uid;
 
     private String email;
+
+    private String nickname;
 
     private String password;
 
@@ -91,6 +97,7 @@ public class User implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;
+
     }
 
 }
