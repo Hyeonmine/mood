@@ -35,9 +35,9 @@ public class UserApiController {
             model.addAttribute("errorMessage",e.getMessage());
             return "account/accountCreateForm";
         }
-
-        //redirect로 경로 변경
-        return "";
+        //form 에 에러메세지 설정
+        //경로 변경
+        return "account/accountCreateForm";
     }
 
 
@@ -47,9 +47,9 @@ public class UserApiController {
         Map<String, String> response = new HashMap<>();
         User confirmUser = userRepository.findByEmail(email);
         if (confirmUser != null) {
-            response.put("message", "아이디가 이미 존재합니다.");
+            response.put("message", "이미 존재하는 이메일입니다.");
         } else {
-            response.put("message", "사용 가능한 아이디입니다.");
+            response.put("message", "사용 가능한 이메일입니다.");
         }
         return ResponseEntity.ok(response);
     }

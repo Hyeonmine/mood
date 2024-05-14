@@ -27,7 +27,7 @@ public class User {
 
 
 
-    //계정 생성
+    //계정 생성, bycrptPassword 나중에 SecurityConfig에 빈으로 추가
     public static User createUser(UserFormDto userDto) {
         User user = new User();
         user.setUid(userDto.getUid());

@@ -23,4 +23,7 @@ public class Hash {
     @JoinColumn(name="bno")
     private Board board;
 
+
+
+
 }

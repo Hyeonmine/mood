@@ -14,15 +14,17 @@
             success: function(response) {
                 alert(response.message);
                 message = response.message;
+
+                if(message === "사용 가능한 이메일입니다.") {
+                    $("#submitButton").prop("disabled",false)
+                }
             },
             error: function(xhr, status, error) {
                 alert(xhr.responseText);
             }
         });
 
-        if(message === "사용 가능한 아이디입니다.") {
-        $("#submitButton").prop("disabled",false)
-        }
+
     }
 </script>
 
@@ -38,11 +40,16 @@
                 <label>Password</label>
                 <input type="password" class="form-control" name="password">
             </div>
+        <div>
+            <label>Nickname</label>
+            <input type="text" class="form-control" name="nickname">
+        </div>
+
             <div>
                 <label>Email</label>
                 <input type="email" class="form-control" name="email">
                 <button type="button" onclick="checkEmail()">이메일 중복 확인 </button>
-<!--             중복된 아이디가 나와도 지금은 바로 넘어가짐 -->
+
             </div>
             <button id="submitButton" type="submit" disabled>Submit</button>
     </form>
