@@ -16,10 +16,10 @@ import java.util.List;
 @Entity
 @ToString
 @Table(name="board")
-public class Board extends BaseTimeEntity{
+public class Board extends BaseTimeEntity {
 
     @Id
-    @Column(name="bno")
+    @Column(name = "bno")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bno;
 
@@ -44,10 +44,7 @@ public class Board extends BaseTimeEntity{
         board.setContent(boardDto.getContent());
         board.setHit(3L);
 
-
-
         return board;
     }
 }
 
-//, UserFormDto userFormDto, List<MultipartFile> files

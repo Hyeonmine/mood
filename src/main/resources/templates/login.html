@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <style>
+        .gradient-custom {
+            background-color: rgba(255, 239, 160, 1)
+        }
+    </style>
+</head>
+<body class="gradient-custom">
+<section class="d-flex vh-100">
+    <div class="container-fluid row justify-content-center align-content-center">
+        <div class="card bg-dark" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+                <h2 class="text-white">LOGIN</h2>
+
+                <div class = "mb-2">
+                    <form action="/" method="post">
+                        <input type="hidden" />
+                        <div class="mb-3">
+                            <label class="form-label text-white">ID</label>
+                            <input type="text" class="form-control" name="uid">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-white">PW</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">로그인</button>
+                    </form>
+
+                    <button type="button" class="btn btn-secondary mt-3">카카오 로그인</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -60,5 +60,40 @@ public class UserApiController {
         return "redirect:/account/accountCreateForm";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+        return "redirect:/login";
+    }
+
+    @PostMapping("/api/user")
+    public ResponseEntity<User> addUser(@RequestBody UserDto request) {
+        User savedUser = userService.save(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+
+    }
+
+    @GetMapping("/api/users")
+    public ResponseEntity<List<UserResponse>> findAllDiaries() {
+        List<UserResponse> users = userService.findAll()
+                .stream()
+                .map(UserResponse::new)
+                .toList();
+        return ResponseEntity.ok().body(users);
+    }
+
+    @GetMapping("/api/user/{uid}")
+    // URL 경로에서 값 추출
+    public ResponseEntity<UserResponse> findUserById(@PathVariable String uid) {
+        User user = userService.findByUid(uid);
+        return ResponseEntity.ok().body(new UserResponse(user));
+    }
+
+    @DeleteMapping("/api/user/{uid}")
+    public ResponseEntity<Void> deleteUser(@PathVariable String uid) {
+        userService.delete(uid);
+        return ResponseEntity.ok().build();
+    }
+
 
 }
