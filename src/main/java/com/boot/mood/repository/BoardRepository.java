@@ -1,5 +1,8 @@
 package com.boot.mood.repository;
 
+import org.springframework.stereotype.Repository;
+
+
 import com.boot.mood.dto.BoardDto;
 import com.boot.mood.dto.SearchDto;
 import com.boot.mood.entity.Board;
@@ -18,4 +21,5 @@ public interface BoardRepository extends JpaRepository<Board, Long> , QuerydslPr
 //    검색 기능
     @Query("select i from Board i where i.title like %:title%")
     List<Board> findByTitleContaining(@Param("title") String title);
+
 }

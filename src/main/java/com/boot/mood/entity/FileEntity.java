@@ -2,16 +2,15 @@ package com.boot.mood.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
 @ToString
 @Table(name="file")
-public class File {
+public class FileEntity {
 
     @Id
     @Column(name="fno")
@@ -27,4 +26,12 @@ public class File {
     private String fileName;
 
     private String fileOrigin;
+
+    @Builder
+    public FileEntity(Long fno, String fileUrl, String fileName, String fileOrigin) {
+       this.fno = fno;
+       this.fileUrl = fileUrl;
+       this.fileName = fileName;
+       this.fileOrigin = fileOrigin;
+    }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+
+
+    <form th:action="@{/board}" method="POST" enctype="multipart/form-data">
+
+
+
+        <div>
+            <label>Title</label>
+            <input type="text" class="form-control" name="title">
+
+        </div>
+
+        <div>
+            파일 : <input type="file" multiple="multiple" name="uploadFiles">
+        </div>
+
+        <div>
+            <label>Content</label>
+            <input type="text" class="form-control" name="content">
+        </div>
+
+        <button type="submit"> Submit </button>
+    </form>
+
+
+
+
+
+</html>
