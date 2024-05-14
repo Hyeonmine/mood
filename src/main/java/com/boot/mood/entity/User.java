@@ -1,9 +1,7 @@
 package com.boot.mood.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.boot.mood.dto.UserFormDto;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,23 +10,33 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name="user")
+@Table(name="`user`")
 public class User {
 
     @Id
-    @Column(name="uid")
+    @Column(name = "uid")
+
     private String uid;
 
     private String email;
 
-    private String password;
-
     private String nickname;
 
-//    public User createUser() {
-//        User user = new User();
-//
-//
-//    }
+    private String password;
+
+
+
+
+    //계정 생성
+    public static User createUser(UserFormDto userDto) {
+        User user = new User();
+        user.setUid(userDto.getUid());
+        user.setEmail(userDto.getEmail());
+        user.setNickname(userDto.getNickname());
+        user.setPassword(userDto.getPassword());
+
+
+        return user;
+    }
 
 }

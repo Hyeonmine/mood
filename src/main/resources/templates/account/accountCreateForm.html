@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<script>
+    function checkEmail() {
+        var email = $("input[name='email']").val();
+        var message;
+        $.ajax({
+            type: "GET",
+            url: "/user/check?email=" + email,
+            success: function(response) {
+                alert(response.message);
+                message = response.message;
+            },
+            error: function(xhr, status, error) {
+                alert(xhr.responseText);
+            }
+        });
+
+        if(message === "사용 가능한 아이디입니다.") {
+        $("#submitButton").prop("disabled",false)
+        }
+    }
+</script>
+
+
+
+    <form th:action="@{/user}" method="POST">
+            <div>
+                <label>User Id</label>
+                <input type="text" class="form-control" name="uid">
+
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" class="form-control" name="email">
+                <button type="button" onclick="checkEmail()">이메일 중복 확인 </button>
+<!--             중복된 아이디가 나와도 지금은 바로 넘어가짐 -->
+            </div>
+            <button id="submitButton" type="submit" disabled>Submit</button>
+    </form>
+
+
+
+
+</html>
