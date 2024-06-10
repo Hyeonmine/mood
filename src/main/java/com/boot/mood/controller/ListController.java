@@ -38,20 +38,26 @@ public class ListController {
 
         Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 10);
         Page<Board> boards = boardService.getBoardPage(searchDto, pageable);
-
-        return "board/boardList";
-    }
-
-    @PostMapping(value = "/boardList")
-    public String boardList2(Model model){
-        List<Board> boards = boardService.findAll();
-        model.addAttribute("boards",boards);
+        model.addAttribute("boards", boards);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
         model.addAttribute("hasNext", boards.hasNext());
         model.addAttribute("hasPrev", boards.hasPrevious());
         model.addAttribute("searchDto", searchDto);
         model.addAttribute("maxPage", 5);
+        return "board/boardList";
+    }
+
+    @PostMapping(value = "/")
+    public String boardList2(Model model, Pageable pageable){
+        List<Board> boards = boardService.findAll();
+        model.addAttribute("boards",boards);
+//        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+//        model.addAttribute("next", pageable.next().getPageNumber());
+//        model.addAttribute("hasNext", boards.hasNext());
+//        model.addAttribute("hasPrev", boards.hasPrevious());
+//        model.addAttribute("searchDto", searchDto);
+//        model.addAttribute("maxPage", 5);
         return "board/boardList";
     }
 }

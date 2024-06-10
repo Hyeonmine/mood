@@ -22,4 +22,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> , QuerydslPr
     @Query("select i from Board i where i.title like %:title%")
     List<Board> findByTitleContaining(@Param("title") String title);
 
+    List<Board> findAllByOrderByTitleDesc();
+    List<Board> findAllByOrderByWriterDesc();
+
 }

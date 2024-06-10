@@ -31,7 +31,9 @@ public class BoardRepositoryCustomImpl implements BoardRepositoryCustom{
         if(StringUtils.equals("title", searchBy)){
             return board.title.like("%" + searchQuery + "%");
         }else if(StringUtils.equals("writer", searchBy)){
-            return user.uid.like("%" + searchQuery + "%");
+            return board.writer.uid.like("%" + searchQuery + "%");
+        }else if(StringUtils.equals("content" , searchBy)){
+            return board.content.like("%" + searchQuery + "%");
         }
         return null;
     }

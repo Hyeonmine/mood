@@ -36,6 +36,19 @@
         <p th:align="right">
             <a >글쓰기</a>
         </p>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                정렬
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">번호순</a></li>
+                <li><a class="dropdown-item" href="#">제목순</a></li>
+                <li><a class="dropdown-item" href="#">작성순</a></li>
+
+            </ul>
+
+        </div>
         <table class="table text-center align-center">
             <colgroup>
                 <col style="width: 7.5%;"/>
@@ -82,7 +95,6 @@
                 <form method="get" id="d-flex" role="search">
                     <div class="input-group" th:object="${searchDto}">
                         <select title="검색 유형 선택" th:field="*{searchBy}">
-                            <option value="">전체 검색</option>
                             <option value="title">제목</option>
                             <option value="content">본문</option>
                             <option value="writer">작성자</option>
